@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Album } from "./Album";
-
+import "./Albums.css"
 
 export const AlbumList = () => {
     const [albums, setAlbums] = useState([]);

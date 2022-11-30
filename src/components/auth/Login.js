@@ -56,7 +56,7 @@ export const Login = () => {
               id="password"
               onChange={(evt) => updateLogin(evt)}
               className="form-control"
-              placeholder="password"
+              placeholder="Password"
               required
               autoFocus
             />

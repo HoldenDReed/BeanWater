@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 export const Album = ({ id, title, img }) => {
     return <section className="Album">
     <div>
-        <Link to={`/albums/${id}`}>{title}</Link>
+        <Link to={`/albums/${id}`}><h3>{title}</h3></Link>
     </div>
     <div>
-        <img src={img} width="150px" height="150px"></img>
+        <Link to={`/albums/${id}`}>
+            <img src={img} className="albumCover"></img>
+        </Link>
     </div>
     </section>
 }

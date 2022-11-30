@@ -7,7 +7,7 @@ export const ApplicationViews = () => {
   const userObject = JSON.parse(localUser);
   
  
-  if (userObject.staff) {
+  if (userObject.isStaff) {
     return <EmployeeView />;
   } else {
     return <CustomerView />;

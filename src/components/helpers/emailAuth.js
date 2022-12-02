@@ -85,6 +85,7 @@ export const emailAuth = {
             displayName: userCredential.user.displayName,
             uid: userCredential.user.uid,
             type: "email",
+            isStaff: userObj.isStaff = 'true' ? true : false
           };
           // Saves the user to localstorage
           localStorage.setItem("capstone_user", JSON.stringify(userAuth));

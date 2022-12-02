@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-
 export const Album = ({ id, title, img }) => {
-    return <section className="Album">
+    return <section className="album">
     <div>
-        <Link to={`/albums/${id}`}><h3>{title}</h3></Link>
+        <Link to={`/albums/${id}`}><h3 className="albumTitle">{title}</h3></Link>
     </div>
     <div>
         <Link to={`/albums/${id}`}>

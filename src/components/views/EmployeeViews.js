@@ -1,8 +1,9 @@
 import { Outlet, Routes, Route } from "react-router-dom"
-import { AlbumList } from "../albums/AlbumsList";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../helpers/logout"
 import { AlbumDetails } from "../albums/AlbumsDetails";
+import { AlbumContainer } from "../albums/AlbumContainer";
+import "./views.css"
 export const EmployeeView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
@@ -22,13 +23,16 @@ export const EmployeeView = () => {
                 element={
 
                     <>
-                        <h1>Welcome, staff member {userObject.displayName}</h1>
-                        <button type="submit" onClick={onLogout}>Logout</button>
+                    <header className="header"> 
+                        <h1>Welcome, Staff Member {userObject.displayName}</h1>
+                        <button type="submit" className="logoutButton" onClick={onLogout}>Logout</button>
+                        </header>
                         <Outlet />
+     
                     </>
 
                 }>
-                <Route path="/" element={<AlbumList />} />
+                <Route path="/" element={<AlbumContainer />} />
                 <Route path="albums/:albumId" element={<AlbumDetails/> } />
             </Route>
         </Routes>

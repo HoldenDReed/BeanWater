@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Album } from "./Album";
 import "./Albums.css"
 
-export const AlbumList = () => {
+export const AlbumList = ({ searchTermState, setterFunction }) => {
     const [albums, setAlbums] = useState([]);
+    const [filteredAlbums, setFilteredAlbums] = useState([]);
+    
 
     useEffect(
         () => {
@@ -17,21 +19,40 @@ export const AlbumList = () => {
                 setAlbums(albumsArray);
             };
             fetchData();
-        }, 
+        },
         []
-        );
+    );
+
+    useEffect(
+        () => {
+            setFilteredAlbums(albums)
+
+        },
+        [albums]
+    );
+
+    useEffect(
+        () => {
+            const searchedAlbums = albums.filter(album => {
+                return album.albumTitle.toLowerCase().startsWith(searchTermState.toLowerCase())
+            })
+            setFilteredAlbums(searchedAlbums)
+        },
+        [searchTermState]
+    )
 
     return <>
 
-            <article className="events">
-                {
-                albums.map(album => <Album key={`album--${album.id}`}
-                        id={album.id}
-                        title={album.albumTitle}
-                        img={album.albumImg}
-                        info={album.albumInfo}
-                        url={album.albumUrl} />)
-                }
-            </article>
-        </>
+        
+        <div className="albums">
+            {
+                filteredAlbums.map(album => <Album key={`album--${album.id}`}
+                    id={album.id}
+                    title={album.albumTitle}
+                    img={album.albumImg}
+                    info={album.albumInfo}
+                    url={album.albumUrl} />)
+            }
+        </div>
+    </>
 };

@@ -5,14 +5,37 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-
 // userObject expected ---->
 // {
 //   email: "",
 //   password: "",
 //   fullName: "",
 // }
+const registerNewUser = (userAuth) => {
+  return fetch("http://localhost:8088/users", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userAuth)
+  })
+}
 
+const handleRegister = (userAuth) => {
+  
+  return fetch(`http://localhost:8088/users?email=${userAuth.email}`)
+      .then(res => res.json())
+      .then(response => {
+          if (response.length > 0) {
+              // Duplicate email. No good.
+              
+          }
+          else {
+              // Good email, create user.
+              registerNewUser(userAuth)
+          }
+      })
+}
 export const emailAuth = {
   // Register New User
   register: function(userObj, navigate) {
@@ -29,7 +52,10 @@ export const emailAuth = {
               displayName: userObj.fullName,
               uid: userCredential.user.uid,
               type: "email",
+              isStaff: userObj.isStaff = 'true' ? true : false
             };
+        handleRegister(userAuth)
+
             // Saves the user to localstorage
             localStorage.setItem("capstone_user", JSON.stringify(userAuth));
             // Navigate us back to home
@@ -59,6 +85,7 @@ export const emailAuth = {
             displayName: userCredential.user.displayName,
             uid: userCredential.user.uid,
             type: "email",
+            isStaff: userObj.isStaff = 'true' ? true : false
           };
           // Saves the user to localstorage
           localStorage.setItem("capstone_user", JSON.stringify(userAuth));

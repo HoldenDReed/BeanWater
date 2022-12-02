@@ -9,6 +9,7 @@ export const Register = () => {
     email: "",
     fullName: "",
     password: "",
+    isSaff: false
   });
   let navigate = useNavigate();
 
@@ -69,7 +70,28 @@ export const Register = () => {
           />
         </fieldset>
         <fieldset>
-          <button type="submit"> Register </button>
+          <label htmlFor="isStaff"> Staff </label>
+          <input
+            name="staff"
+            onChange={updateUser}
+            type="radio"
+            id="isStaff"
+            value={true}
+            autoFocus
+          />
+          <label htmlFor="notStaff"> Customer </label>
+          <input
+            name="staff"
+            onChange={updateUser}
+            type="radio"
+            id="notStaff"
+            value={false}
+            autoFocus
+          />
+        </fieldset>
+        
+        <fieldset>
+          <button type="submit" onClick={handleRegister}> Register </button>
         </fieldset>
       </form>
       <h2>Register With Google?</h2>

@@ -1,0 +1,52 @@
+.albumCover {
+    width: 220px ;
+    height: 330px ;
+    border-radius: 8px;
+}
+
+.albums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.album {
+    background-color: #FDFDFD;
+    border: 2px solid #000022;
+    color: black;
+    box-shadow: 2px 2px 0px #000022;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin: 0.7rem;
+}
+
+.albumTitle {
+    text-align: center;
+}
+
+.searchBar {
+font-size:x-large;
+text-align: center;
+flex-direction: column;
+display: flex;
+justify-content: center;
+justify-content: space-evenly;
+margin: auto;
+width: 390px;
+height: 128px;
+background-color: #FDFDFD;
+border: 2px solid #000022;
+color: black;
+box-shadow: 2px 2px 0px #000022;
+border-radius: 8px;
+padding: 0.5rem;
+margin-top: 16px;
+margin-bottom: 16px;
+
+}
+
+#albumInput {
+    background-color: #cacacc;
+    font-size: large;
+    text-align: center;
+}

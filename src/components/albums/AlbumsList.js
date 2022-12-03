@@ -2,18 +2,20 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Album } from "./Album";
+import { RadioButton } from "./RadioButton";
 import "./Albums.css"
 
 export const AlbumList = ({ searchTermState, setterFunction }) => {
     const [albums, setAlbums] = useState([]);
     const [filteredAlbums, setFilteredAlbums] = useState([]);
+    const [catagorie, setCatagorie] = useState(false);
     
 
     useEffect(
         () => {
             const fetchData = async () => {
                 const response = await fetch(
-                    `http://localhost:8088/albums`
+                    `http://localhost:8088/albums?_expand=gameType&_sort=albumTitle`
                 );
                 const albumsArray = await response.json();
                 setAlbums(albumsArray);
@@ -41,9 +43,71 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
         [searchTermState]
     )
 
-    return <>
+    useEffect(
+        () => {
+            if(catagorie === "all") {
+                setFilteredAlbums(albums)
+            } else {
+            const fetchData = async () => {
+                const response = await fetch(
+                    `http://localhost:8088/albums?gameTypeId=${catagorie}`
+                );
+                const albumsArray = await response.json();
+                setFilteredAlbums(albumsArray);
+        };
+        fetchData()
+    }
+        },
+    [catagorie]
+    );
 
-        
+
+    const radioChangeHandler = (e) => {
+        setCatagorie(e.target.value);
+      };
+
+    return <>
+   <div className="radio-btn-container">
+        <RadioButton
+          changed={radioChangeHandler}
+          id="1"
+          isSelected={catagorie === "Adventure"}
+          label="Adventure"
+          value="1"
+        />
+
+        <RadioButton
+          changed={radioChangeHandler}
+          id="2"
+          isSelected={catagorie === "Retro"}
+          label="Retro"
+          value="2"
+        />
+
+        <RadioButton
+          changed={radioChangeHandler}
+          id="3"
+          isSelected={catagorie === "FPS"}
+          label="FPS"
+          value="3"
+        />
+
+        <RadioButton
+          changed={radioChangeHandler}
+          id="4"
+          isSelected={catagorie === "Story/RPG"}
+          label="Story/RPG"
+          value="4"
+        />  
+        <RadioButton
+          changed={radioChangeHandler}
+          id="5"
+          isSelected={catagorie === "Show All"}
+          label="Show all"
+          value="all"
+        />  
+      </div>
+
         <div className="albums">
             {
                 filteredAlbums.map(album => <Album key={`album--${album.id}`}

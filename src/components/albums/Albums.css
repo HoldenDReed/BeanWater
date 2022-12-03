@@ -50,3 +50,8 @@ margin-bottom: 16px;
     font-size: large;
     text-align: center;
 }
+
+.radio-btn-container {
+    display: flex;
+    justify-content: center;
+}

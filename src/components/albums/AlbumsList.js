@@ -28,7 +28,6 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
     useEffect(
         () => {
             setFilteredAlbums(albums)
-
         },
         [albums]
     );
@@ -41,26 +40,21 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
             setFilteredAlbums(searchedAlbums)
         },
         [searchTermState]
-    )
+    );
 
     useEffect(
         () => {
             if(catagorie === "all") {
                 setFilteredAlbums(albums)
             } else {
-            const fetchData = async () => {
-                const response = await fetch(
-                    `http://localhost:8088/albums?gameTypeId=${catagorie}`
-                );
-                const albumsArray = await response.json();
-                setFilteredAlbums(albumsArray);
-        };
-        fetchData()
-    }
+               const newCatagorie = parseInt(catagorie)
+            const catagorizedAlbums = albums.filter(album => {
+                return album.gameType.id === newCatagorie})
+                setFilteredAlbums(catagorizedAlbums)
+            }
         },
     [catagorie]
     );
-
 
     const radioChangeHandler = (e) => {
         setCatagorie(e.target.value);

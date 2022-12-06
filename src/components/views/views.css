@@ -8,10 +8,14 @@
 
 .logoutButton {
     margin-right: 50px;
-    margin-top: 50px;
+    margin-top: 1rem;
     width: 70px;
     height: 25px;
 }
 .headerText {
     margin-left: 50px;
+}
+
+.body {
+    background-color: #0D1116;
 }

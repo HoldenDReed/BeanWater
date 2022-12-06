@@ -1,6 +1,6 @@
 .albumCover {
-    width: 220px ;
-    height: 330px ;
+    width: 220px;
+    height: 330px;
     border-radius: 8px;
 }
 
@@ -22,26 +22,28 @@
 
 .albumTitle {
     text-align: center;
+    max-width: 220px;
+    height: 64px;
 }
 
 .searchBar {
-font-size:x-large;
-text-align: center;
-flex-direction: column;
-display: flex;
-justify-content: center;
-justify-content: space-evenly;
-margin: auto;
-width: 390px;
-height: 128px;
-background-color: #FDFDFD;
-border: 2px solid #000022;
-color: black;
-box-shadow: 2px 2px 0px #000022;
-border-radius: 8px;
-padding: 0.5rem;
-margin-top: 16px;
-margin-bottom: 16px;
+    font-size: x-large;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 390px;
+    height: 128px;
+    background-color: #FDFDFD;
+    border: 2px solid #000022;
+    color: black;
+    box-shadow: 2px 2px 0px #000022;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-top: 16px;
+    margin-bottom: 16px;
 
 }
 
@@ -49,4 +51,33 @@ margin-bottom: 16px;
     background-color: #cacacc;
     font-size: large;
     text-align: center;
+}
+
+.radio-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 4px;
+}
+
+.RadioButton {
+    padding: 5px;
+}
+
+.albumButton {
+    float: right;
+    position: relative;
+    margin-top: 15%;
+}
+
+.formCenter {
+    justify-content: center;
+}
+
+.centerItems {
+    place-items: center center;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: space-between;
 }

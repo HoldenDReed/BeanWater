@@ -4,6 +4,7 @@ import { logout } from "../helpers/logout"
 import { AlbumDetails } from "../albums/AlbumsDetails";
 import { AlbumContainer } from "../albums/AlbumContainer";
 import "./views.css"
+import { NavBar } from "../nav/NavBar";
 export const CustomerView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
@@ -16,22 +17,24 @@ export const CustomerView = () => {
     return (
 
 
-
         <Routes>
             <Route
                 path="/"
                 element={
 
                     <>
+                    <NavBar />
                     <header className="header"> 
                         <h1 className="headerText">Welcome, {userObject.displayName}</h1>
                         <button type="submit" className="logoutButton" onClick={onLogout}>Logout</button>
                         </header>
+                        
                         <Outlet />
      
                     </>
 
                 }>
+                    
                 <Route path="/" element={<AlbumContainer />} />
                 <Route path="albums/:albumId" element={<AlbumDetails/> } />
             </Route>

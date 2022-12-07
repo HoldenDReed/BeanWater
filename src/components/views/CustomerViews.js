@@ -5,6 +5,7 @@ import { AlbumDetails } from "../albums/AlbumsDetails";
 import { AlbumContainer } from "../albums/AlbumContainer";
 import "./views.css"
 import { NavBar } from "../nav/NavBar";
+import { Favorites } from "../favorites/Favorites";
 export const CustomerView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
@@ -37,6 +38,8 @@ export const CustomerView = () => {
                     
                 <Route path="/" element={<AlbumContainer />} />
                 <Route path="albums/:albumId" element={<AlbumDetails/> } />
+                <Route path="/favorites" element={<Favorites/> } />
+
             </Route>
         </Routes>
     );

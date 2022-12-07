@@ -84,7 +84,7 @@ export const CreateAlbum = () => {
           <Form.Control
             required
             autoFocus
-            type="text"
+            as="textarea"
             placeholder="Album Description"
             value={newAlbum.albumInfo}
             onChange={(evt) => {

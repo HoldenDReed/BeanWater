@@ -91,6 +91,7 @@ export const emailAuth = {
           localStorage.setItem("capstone_user", JSON.stringify(userAuth));
           // Navigate us back to home
           navigate("/");
+          window.location.reload(false)
         })
         .catch((error) => {
           console.log("Email SignIn Error");

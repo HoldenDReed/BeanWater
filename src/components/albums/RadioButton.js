@@ -2,7 +2,7 @@ export const RadioButton = (props) => {
     const { changed, id, isSelected, label, value } = props;
     return (
       <div className="RadioButton">
-        <input
+        <input className="radioDot"
           id={id}
           onChange={changed}
           value={value}

@@ -6,6 +6,7 @@ import { AlbumContainer } from "../albums/AlbumContainer";
 import "./views.css"
 import { NavBar } from "../nav/NavBar";
 import { CreateAlbum } from "../albums/CreateAlbum";
+import { AlbumEdit } from "../albums/AlbumEdit";
 export const EmployeeView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
@@ -27,7 +28,7 @@ export const EmployeeView = () => {
                     <>
                     <NavBar />
                     <header className="header"> 
-                        <h1>Welcome, Staff Member {userObject.displayName}</h1>
+                        <h1 className="headerText">Welcome, Staff Member {userObject.displayName}</h1>
                         <button type="submit" className="logoutButton" onClick={onLogout}>Logout</button>
                         </header>
                         <Outlet />
@@ -35,6 +36,7 @@ export const EmployeeView = () => {
                     </>
 
                 }>
+                <Route path="albumEdit/:albumId" element={<AlbumEdit/> } />
                 <Route path="/" element={<AlbumContainer />} />
                 <Route path="albums/:albumId" element={<AlbumDetails/> } />
                 <Route path="albums/create" element={<CreateAlbum/> } />

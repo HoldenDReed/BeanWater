@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Form } from "react-bootstrap";
-import "./Albums.css" 
+import "./Albums.css"
 import Button from "react-bootstrap/Button";
 export const CreateAlbum = () => {
   const [newAlbum, update] = useState({
@@ -17,31 +17,36 @@ export const CreateAlbum = () => {
   const handleSaveButtonClick = (event) => {
     event.preventDefault();
 
-    const albumToSendToAPI = {
-        albumTitle: newAlbum.albumTitle,
-        albumImg: newAlbum.albumImg,
-        albumInfo: newAlbum.albumInfo,
-        albumUrl: newAlbum.albumUrl,
-        gameTypeId: newAlbum.gameTypeId,
-    };
+    const form = document.getElementById(`albumCreate`)
 
-    return fetch(`http://localhost:8088/albums`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(albumToSendToAPI),
-    })
-      .then((response) => response.json())
-      .then(() => {
-        navigate(`/`);
-      });
-  };
+    const albumToSendToAPI = {
+      albumTitle: newAlbum.albumTitle,
+      albumImg: newAlbum.albumImg,
+      albumInfo: newAlbum.albumInfo,
+      albumUrl: newAlbum.albumUrl,
+      gameTypeId: newAlbum.gameTypeId,
+    };
+    if (form.checkValidity()) {
+      return fetch(`http://localhost:8088/albums`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(albumToSendToAPI),
+      })
+        .then((response) => response.json())
+        .then(() => {
+          navigate(`/`);
+        });
+    } else {
+      window.alert("Please fill out the entire form")
+    }
+  }
   return (
     <Container className="d-grid h-100, centerItems">
-    <Form style={{ width: "50%", height: "4rem", }} className="text-center">
-      <h2>New Album Form</h2>
-      
+      <Form style={{ width: "50%", height: "4rem", }} className="text-center" id="albumCreate">
+        <h2>New Album Form</h2>
+
         <Form.Group className="mb-3" >
           <Form.Label htmlFor="type">Enter album Type:</Form.Label>
           <Form.Select
@@ -60,8 +65,8 @@ export const CreateAlbum = () => {
             <option value="4">Story/RPG</option>
           </Form.Select>
         </Form.Group>
-     
-      
+
+
         <Form.Group className="mb-3">
           <Form.Label htmlFor="name">Enter album title:</Form.Label>
           <Form.Control
@@ -77,8 +82,8 @@ export const CreateAlbum = () => {
             }}
           />
         </Form.Group>
-      
-      
+
+
         <Form.Group className="mb-3">
           <Form.Label htmlFor="name">Enter album description:</Form.Label>
           <Form.Control
@@ -133,22 +138,22 @@ export const CreateAlbum = () => {
           />
         </Form.Group >
         <div className="formButtons">
-      <Button 
-        onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-        variant="dark"
-      >
-        Submit New Event
-      </Button >
-      <Button 
-        onClick={() => {
-          navigate(`/`);
-        }}
-        variant="dark"
-      >
-        Cancel
-      </Button  >
-      </div>
-    </Form>
+          <Button
+            onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
+            variant="dark"
+          >
+            Submit New Event
+          </Button >
+          <Button
+            onClick={() => {
+              navigate(`/`);
+            }}
+            variant="dark"
+          >
+            Cancel
+          </Button  >
+        </div>
+      </Form>
     </Container>
   );
 };

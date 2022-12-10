@@ -3,14 +3,18 @@ import { BsCheckCircle } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { BsPencilFill } from "react-icons/bs";
 const localUser = localStorage.getItem("capstone_user");
 const userObject = JSON.parse(localUser);
 
 
 export const Album = ({ id, title, img }) => {
-
+    const navigate = useNavigate()
     const [isFavorite, setIsFavorite] = useState(false)
     const [favoritesId, setFavoritesId] = useState("")
+   
+
     useEffect(
         () => {
             const checkIfFavorite = async () => {
@@ -29,9 +33,14 @@ export const Album = ({ id, title, img }) => {
         [id]
     )
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+        navigate(`/albumEdit/${id}`)
+    };
+
     return <section className="album">
         <div>
-            <Link to={`/albums/${id}`}><h3 className="albumTitle">{title}</h3></Link>
+            <Link  className="titleLink" to={`/albums/${id}`}><h3 className="albumTitle">{title}</h3></Link>
         </div>
         <div>
             <Link to={`/albums/${id}`}>
@@ -42,6 +51,9 @@ export const Album = ({ id, title, img }) => {
             {
                 userObject.isStaff
                     ? <>
+                    <button className="btn albumEdit" onClick={submitHandler}>
+                    <BsPencilFill />
+                    </button>
                         <button className="deleteButton" onClick={async () => {
                             if (window.confirm("Are you sure you want to delete?")) {
                                 fetch(`http://localhost:8088/albums/${id}`, {
@@ -52,7 +64,8 @@ export const Album = ({ id, title, img }) => {
 
                             }
                         }}
-                        > <BsXLg /> </button></>
+                        > <BsXLg /> </button>
+                    </>
                     : ""
             }
         </div>

@@ -18,17 +18,18 @@ export const AlbumDetails = () => {
         [albumId]
     )
 
-    return <section className="albumDetails">
-        <div>{album?.albumTitle}</div>
-
-        <div>
-            <div><img src={album?.albumImg} className="albumCover"></img></div>
-            <div>{album?.albumInfo}</div>
+    return <section>
+        <h2 className="albumDetailsTitle">{album?.albumTitle}</h2>
+        <section className="albumDetails">
+        <div className="detailsColum">
+            <div className="albumDetailsImage"><img src={album?.albumImg} className="albumCover"></img></div>
+            <div className="albumInfo">{album?.albumInfo}</div>
         </div>
 
-        <div>
-            <div><iframe width="560" height="315" src={album?.albumUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
-            <div></div>
+        <div className="detailsColum">
+            <div><iframe width="600" height="330" src={album?.albumUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div>
+            <div className="albumInfo">Comments</div>
         </div>
+        </section>
     </section>
 }

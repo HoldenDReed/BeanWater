@@ -58,8 +58,8 @@ export const AlbumEdit = () => {
     }
     return (
         <Container className="d-grid h-100, centerItems">
-            <Form style={{ width: "50%", height: "4rem", }} className="text-center" id="albumEdit">
-                <h2>Edit Album</h2>
+            <Form style={{ width: "50%", height: "4rem", color:"white" }} className="text-center" id="albumEdit">
+                <h2 className="albumDetailsTitle">Edit Album</h2>
 
                 <Form.Group className="mb-3" >
                     <Form.Label htmlFor="type">Enter album Type:</Form.Label>
@@ -152,13 +152,13 @@ export const AlbumEdit = () => {
                     />
                 </Form.Group >
                 <div className="formButtons">
-                    <Button
+                    <Button className="glow-on-hover"
                         onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
                         variant="dark"
                     >
                         Submit Edit
                     </Button >
-                    <Button
+                    <Button className="glow-on-hover"
                         onClick={() => { navigate(`/`); }}
                         variant="dark"
                     >

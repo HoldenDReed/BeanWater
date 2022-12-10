@@ -54,6 +54,7 @@ export const googleAuth = {
           localStorage.setItem("capstone_user", JSON.stringify(userAuth));
           // Navigate us back home
           navigate("/");
+          window.location.reload(false)
           console.log("you did it");
         })
         .catch((error) => {

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { emailAuth } from "../helpers/emailAuth";
 import { googleAuth } from "../helpers/googleAuth";
 import "./Login.css";
+import GoogleButton from "react-google-button";
 
 export const Login = () => {
   const [login, setLogin] = useState({
@@ -30,9 +31,10 @@ export const Login = () => {
   };
 
   return (
-    <main className="container--login">
+    <div className="loginBackground">
+    <main className="block">
       <section>
-        <form className="form--login" onSubmit={onSubmitLoginEmail}>
+        <form className="form--login, centerItems" onSubmit={onSubmitLoginEmail}>
           <h1>VG Music Depot</h1>
           <h2>Please sign in</h2>
           <fieldset>
@@ -68,11 +70,9 @@ export const Login = () => {
       </section>
       <section className="link--register">
         <Link to="/register">Not a member yet?</Link>
+      <GoogleButton className="googleButton" type="light" onClick={onSubmitLoginGoogle}/>
       </section>
-      <h2>Login With Google?</h2>
-      <button type="submit" onClick={onSubmitLoginGoogle}>
-        Let's Do It!
-      </button>
     </main>
+    </div>
   );
 };

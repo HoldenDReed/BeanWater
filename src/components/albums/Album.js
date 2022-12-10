@@ -39,9 +39,10 @@ export const Album = ({ id, title, img }) => {
     };
 
     return <section className="album">
-        <div>
-            <Link  className="titleLink" to={`/albums/${id}`}><h3 className="albumTitle">{title}</h3></Link>
+        <div className="glowDiv">
+            <Link  className="glow-on-hover" to={`/albums/${id}`}><h3 className="glow-on-hover, albumTitle">{title}</h3></Link>
         </div>
+        
         <div>
             <Link to={`/albums/${id}`}>
                 <img src={img} className="albumCover"></img>
@@ -51,10 +52,10 @@ export const Album = ({ id, title, img }) => {
             {
                 userObject.isStaff
                     ? <>
-                    <button className="btn albumEdit" onClick={submitHandler}>
+                    <button className="btn albumEdit, glow-on-hover" onClick={submitHandler}>
                     <BsPencilFill />
                     </button>
-                        <button className="deleteButton" onClick={async () => {
+                        <button className="btn deleteButton, glow-on-hover" onClick={async () => {
                             if (window.confirm("Are you sure you want to delete?")) {
                                 fetch(`http://localhost:8088/albums/${id}`, {
                                     method: "DELETE"
@@ -76,7 +77,7 @@ export const Album = ({ id, title, img }) => {
                     : <>
                         {
                             isFavorite
-                                ? <button className="deleteButton"
+                                ? <button className="deleteButton, glow-on-hover"
                                     onClick={() => {
                                       if  (window.confirm("Are you sure?")) {
                                              fetch(`http://localhost:8088/favorites/${favoritesId.id}`, {
@@ -89,7 +90,7 @@ export const Album = ({ id, title, img }) => {
                                     }}
                                     
                                 ><BsCheckCircleFill/></button>
-                                : <button className="deleteButton" onClick={async () => {
+                                : <button className="deleteButton, glow-on-hover" onClick={async () => {
                                     await fetch(`http://localhost:8088/favorites`, {
                                         method: "POST",
                                         headers: {
@@ -107,5 +108,6 @@ export const Album = ({ id, title, img }) => {
                     </>
             }
         </div>
+        
     </section>
 }

@@ -25,7 +25,7 @@ export const Favorites = () => {
     return (
         <>
             <div>
-                <h2>Favorites Page</h2>
+                <h2 className="albumDetailsTitle">Favorites Page</h2>
                 <article className="albums">
                     {
                     favorites.map((album) =>      

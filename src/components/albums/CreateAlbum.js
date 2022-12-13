@@ -142,7 +142,7 @@ export const CreateAlbum = () => {
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
             variant="dark"
           >
-            Submit New Event
+            Submit New Album
           </Button >
           <Button className="glow-on-hover"
             onClick={() => {

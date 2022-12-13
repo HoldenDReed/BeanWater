@@ -197,3 +197,10 @@ justify-content: center;
 .glowDiv {
     padding-top: 2px;
 }
+
+.descriptionBox {
+    border: 2px rgb(200, 135, 14) solid;
+    color: white;
+    width: 90%;
+    background-color: #3f3f3f;
+}

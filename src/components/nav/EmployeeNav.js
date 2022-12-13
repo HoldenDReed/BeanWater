@@ -9,7 +9,7 @@ export const EmployeeNav = () => {
           <Container>
             <Nav className="me-auto">
               <Nav.Link href="/"><BsHouseDoorFill/></Nav.Link>
-              <Nav.Link href="albums/create">Create Album</Nav.Link>
+              <Nav.Link href="/albums/create">Create Album</Nav.Link>
               <Nav.Link href="/random">Random Album</Nav.Link>
             </Nav>
           </Container>

@@ -73,6 +73,7 @@ export const AlbumEdit = () => {
                             update(copy);
                         }}
                     >
+                        <option>Video Game Catagories</option>
                         <option value="1">Adventure</option>
                         <option value="2">Retro</option>
                         <option value="3">FPS</option>

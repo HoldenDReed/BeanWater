@@ -9,7 +9,7 @@ export const CreateAlbum = () => {
     albumImg: "",
     albumInfo: "",
     albumUrl: "",
-    gameTypeId: "",
+    gameTypeId: 1,
   });
 
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ export const CreateAlbum = () => {
             autoFocus
             type="text"
             placeholder="Album Title"
-            value={newAlbum.name}
+            value={newAlbum.albumTitle}
             onChange={(evt) => {
               const copy = { ...newAlbum };
               copy.albumTitle = evt.target.value;

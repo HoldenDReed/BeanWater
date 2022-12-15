@@ -35,7 +35,7 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
     useEffect(
         () => {
             const searchedAlbums = albums.filter(album => {
-                return album.albumTitle.toLowerCase().startsWith(searchTermState.toLowerCase())
+                return album.albumTitle.toLowerCase().includes(searchTermState.toLowerCase())
             })
             setFilteredAlbums(searchedAlbums)
         },

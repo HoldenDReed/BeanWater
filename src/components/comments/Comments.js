@@ -10,16 +10,16 @@ export const Comment = ({ id, datePosted, displayName, comment, uid}) => {
     return <>
         <div key={`comment--${id}`} className="comment">
             <div>{datePosted}</div>
-            <div>{displayName}</div>
+            <div>{displayName}:</div>
             <div>{comment}</div>
-            {
+            {/* {
                 userObject.uid === userId
                 ? <button className="btn btn-dark comment_edit, glow-on-hover"
                     onClick={() => {navigate(`/commentEdit/${id}`)}}>
                     Edit Comment
                 </button>
                 : ""
-            }
+            } */}
             {
                 userObject.uid === userId
                 ? <button className="btn btn-dark glow-on-hover"

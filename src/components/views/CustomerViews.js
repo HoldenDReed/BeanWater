@@ -1,6 +1,5 @@
 import { Outlet, Routes, Route } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
-import { logout } from "../helpers/logout"
 import { AlbumDetails } from "../albums/AlbumsDetails";
 import { AlbumContainer } from "../albums/AlbumContainer";
 import "./views.css"
@@ -10,10 +9,6 @@ export const CustomerView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
     const userObject = JSON.parse(localUser);
-
-    const onLogout = () => {
-        logout.logout(navigate);
-    };
 
     return (
 
@@ -26,8 +21,11 @@ export const CustomerView = () => {
                     <>
                     <NavBar />
                     <header className="header"> 
-                        <h1 className="headerText">Welcome, {userObject.displayName}</h1>
-                        <button type="submit" className="logoutButton" onClick={onLogout}>Logout</button>
+                        <h2 className="headerText">Welcome, {userObject.displayName}</h2>
+                        <div className="titleLogo">
+                        <h1 className="title">VG Music Depot</h1>
+                        <img className="inline" src="https://i0.wp.com/pixelartmaker.com/art/453f8420077d7ab.png?resize=160,120"></img>
+                        </div>
                         </header>
                         
                         <Outlet />

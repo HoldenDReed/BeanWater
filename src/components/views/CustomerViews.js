@@ -5,6 +5,7 @@ import { AlbumContainer } from "../albums/AlbumContainer";
 import "./views.css"
 import { NavBar } from "../nav/NavBar";
 import { Favorites } from "../favorites/Favorites";
+import { RandomAlbum } from "../albums/RandomAlbum";
 export const CustomerView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
@@ -37,7 +38,7 @@ export const CustomerView = () => {
                 <Route path="/" element={<AlbumContainer />} />
                 <Route path="albums/:albumId" element={<AlbumDetails/> } />
                 <Route path="/favorites" element={<Favorites/> } />
-
+                <Route path="/random" element={<RandomAlbum/> } />
             </Route>
         </Routes>
     );

@@ -15,7 +15,7 @@
     position: absolute;
     display: inline-block;
     margin-left: 2rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
 
 .body {
@@ -34,6 +34,7 @@
 }
 
 .title {
+    font-family: 'Zen Dots', cursive;
     margin-left: 3rem;
     margin-top: 2rem;
 }

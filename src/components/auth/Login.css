@@ -128,3 +128,7 @@ fieldset {
 .block:after {
   filter: blur(50px);
 }
+
+.loginTitle{
+  font-family: 'Zen Dots', cursive;
+}

@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Comment } from "../comments/Comments"
+import { useNavigate } from "react-router-dom"
 export const AlbumDetails = () => {
+    const navigate = useNavigate()
     const { albumId } = useParams()
     const [album, updateAlbum] = useState({})
     const [comments, updateComments] = useState([])
     const localUser = localStorage.getItem("capstone_user");
     const userObject = JSON.parse(localUser);
+    let [newAlbumId, setAlbumId] = useState({})
+    useEffect(
+      () => {
+        setAlbumId(albumId)
+      },
+      [albumId]
+    )
 
     useEffect(
         () => {
@@ -66,8 +75,13 @@ export const AlbumDetails = () => {
             window.location.reload(false);
           });
       };
+      // const increment = () => {
+      //   newAlbumId++
+      //   navigate(`/albums/${newAlbumId}`)
+      // }
 
     return <section>
+      {/* <button onClick={increment}></button> */}
         <h2 className="albumDetailsTitle">{album?.albumTitle}</h2>
         <section className="albumDetails">
         <div className="detailsColum">

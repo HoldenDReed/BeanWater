@@ -26,7 +26,7 @@ export const EmployeeView = () => {
                     <>
                     <NavBar />
                     <header className="header"> 
-                        <h2 className="headerText">Welcome staff member, {userObject.displayName}</h2>
+                        <h2 className="headerText">Welcome staff member,<br></br> {userObject.displayName}</h2>
                         <div className="titleLogo">
                         <h1 className="title">VG Music Depot</h1>
                         <img className="inline" src="https://i0.wp.com/pixelartmaker.com/art/453f8420077d7ab.png?resize=160,120"></img>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useRef } from "react";
 import { Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
 import { Navigation, EffectFade } from 'swiper';

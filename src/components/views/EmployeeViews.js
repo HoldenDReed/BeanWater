@@ -6,6 +6,7 @@ import "./views.css"
 import { NavBar } from "../nav/NavBar";
 import { CreateAlbum } from "../albums/CreateAlbum";
 import { AlbumEdit } from "../albums/AlbumEdit";
+import { RandomAlbum } from "../albums/RandomAlbum";
 export const EmployeeView = () => {
     const navigate = useNavigate()
     const localUser = localStorage.getItem("capstone_user");
@@ -40,6 +41,7 @@ export const EmployeeView = () => {
                 <Route path="/" element={<AlbumContainer />} />
                 <Route path="albums/:albumId" element={<AlbumDetails/> } />
                 <Route path="albums/create" element={<CreateAlbum/> } />
+                <Route path="/random" element={<RandomAlbum/> } />
             </Route>
         </Routes>
     );

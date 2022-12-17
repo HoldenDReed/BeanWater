@@ -51,14 +51,14 @@ export const AlbumDetails = () => {
       const handleSaveButtonClick = (event) => {
         event.preventDefault();
     
-        const formattedDateStamp = new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-        const formattedTimeStamp = new Date().toLocaleTimeString("en-US");
-        const formattedDateTimeStamp = formattedDateStamp + " " + formattedTimeStamp
+        const DateStamp = new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+        const TimeStamp = new Date().toLocaleTimeString("en-US");
+        const DateTimeStamp = DateStamp + " " + TimeStamp
     
         const commentToSendToAPI = {
           uid: userObject.uid,
           albumId: parseInt(newComment.albumId),  
-          datePosted: formattedDateTimeStamp,
+          datePosted: DateTimeStamp,
           comment: newComment.comment,
           displayName: userObject.displayName
         };

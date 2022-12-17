@@ -52,10 +52,10 @@ export const Album = ({ id, title, img }) => {
             {
                 userObject.isStaff
                     ? <>
-                    <button className="btn albumEdit, glow-on-hover" onClick={submitHandler}>
+                    <button className="albumEdit, glow-on-hover" onClick={submitHandler}>
                     <BsPencilFill />
                     </button>
-                        <button className="btn deleteButton, glow-on-hover" onClick={async () => {
+                        <button className="deleteButton, glow-on-hover" onClick={async () => {
                             if (window.confirm("Are you sure you want to delete?")) {
                                 fetch(`http://localhost:8088/albums/${id}`, {
                                     method: "DELETE"

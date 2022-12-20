@@ -3,13 +3,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Album } from "./Album";
 import { RadioButton } from "./RadioButton";
+import Konami from "konami";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import gameboy from '../pictures/gameboy.png'
 import "./Albums.css"
 
 export const AlbumList = ({ searchTermState, setterFunction }) => {
     const [albums, setAlbums] = useState([]);
     const [filteredAlbums, setFilteredAlbums] = useState([]);
     const [catagorie, setCatagorie] = useState(false);
-    
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(
         () => {
@@ -59,6 +65,10 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
     const radioChangeHandler = (e) => {
         setCatagorie(e.target.value);
       };
+
+      useEffect(()=>{    
+        const easterEgg = new Konami(() => handleShow())
+      },[])
 
     return <>
    <div className="radio-btn-container">
@@ -112,5 +122,23 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
                     url={album.albumUrl} />)
             }
         </div>
+
+        <Modal 
+            size="lg" 
+            show={show} 
+            onHide={handleClose} 
+            backdrop="static" 
+            keyboard={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Secret GameBoy!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><div className="gameBoyContainer"><iframe src="https://www.retrogames.cc/embed/17283-pac-man-collection-e-lightforce.html" width="637" height="440" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" className="pacMan"></iframe><img className="gameBoy" src={gameboy}/>
+        </div></Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
 };

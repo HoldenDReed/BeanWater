@@ -26,6 +26,7 @@ export const AlbumEdit = () => {
         },
         []
     )
+
     const handleSaveButtonClick = (event) => {
         event.preventDefault();
 
@@ -169,4 +170,5 @@ export const AlbumEdit = () => {
             </Form>
         </Container>
     );
+    
 };

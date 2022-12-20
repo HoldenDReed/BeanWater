@@ -8,5 +8,8 @@ export const AlbumContainer = () => {
     return  <>
         <AlbumSearch  setterFunction={setSearchTerms} />
         <AlbumList searchTermState={searchTerms} />
+        <footer className="secretFooter">
+            **Try the Konami code for a secret!**
+        </footer>
     </>
 }

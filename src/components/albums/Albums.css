@@ -206,3 +206,20 @@
 .logutOutBtn{
     margin-right: 1rem;
 }
+
+.pacMan {
+    margin-top: 5rem;
+    position: absolute;
+    margin-right: 4px;
+}
+
+.gameBoy {
+    display: block;
+}
+
+.gameBoyContainer{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+}

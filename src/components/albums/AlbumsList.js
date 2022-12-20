@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useState } from "react";
 import { Album } from "./Album";
@@ -8,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import gameboy from '../pictures/gameboy.png'
 import "./Albums.css"
+
 
 export const AlbumList = ({ searchTermState, setterFunction }) => {
     const [albums, setAlbums] = useState([]);

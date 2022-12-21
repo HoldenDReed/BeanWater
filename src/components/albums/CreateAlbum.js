@@ -44,7 +44,7 @@ export const CreateAlbum = () => {
   }
   return (
     <Container className="d-grid h-100, centerItems">
-      <Form style={{ width: "50%", height: "4rem", color:"white" }} className="text-center" id="albumCreate">
+      <Form style={{ color:"white" }} className="text-center formBackground" id="albumCreate">
         <h2 className="albumDetailsTitle">New Album Form</h2>
 
         <Form.Group className="mb-3" >

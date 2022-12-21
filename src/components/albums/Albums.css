@@ -223,3 +223,15 @@
     position: relative;
     max-width: 100%;
 }
+
+.formBackground{
+    color:"white";
+    width: 52%;
+    background: #111;
+    border: 1.5px solid rgb(200, 135, 14);
+    color: black;
+    box-shadow: 3px 3px 0px rgb(200, 135, 14);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin: 0.7rem;
+}

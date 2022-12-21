@@ -132,7 +132,7 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
         <Modal.Header closeButton>
           <Modal.Title>Secret GameBoy!</Modal.Title>
         </Modal.Header>
-        <Modal.Body><div className="gameBoyContainer"><iframe src="https://www.retrogames.cc/embed/17283-pac-man-collection-e-lightforce.html" width="637" height="440" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" className="pacMan"></iframe><img className="gameBoy" src={gameboy}/>
+        <Modal.Body><div className="gameBoyContainer"><iframe src="https://www.retrogames.cc/embed/42882-pokemon-inclement-emerald-1-13.html" width="637" height="440" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" className="pacMan"></iframe><img className="gameBoy" src={gameboy}/>
         </div></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -142,3 +142,5 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
       </Modal>
     </>
 };
+
+<iframe src="https://www.retrogames.cc/embed/42882-pokemon-inclement-emerald-1-13.html" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>

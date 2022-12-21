@@ -59,7 +59,7 @@ export const AlbumEdit = () => {
     }
     return (
         <Container className="d-grid h-100, centerItems">
-            <Form style={{ width: "50%", height: "4rem", color:"white" }} className="text-center" id="albumEdit">
+            <Form style={{ color:"white" }} className="text-center formBackground" id="albumEdit">
                 <h2 className="albumDetailsTitle">Edit Album</h2>
 
                 <Form.Group className="mb-3" >

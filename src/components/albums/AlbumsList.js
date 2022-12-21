@@ -142,5 +142,3 @@ export const AlbumList = ({ searchTermState, setterFunction }) => {
       </Modal>
     </>
 };
-
-<iframe src="https://www.retrogames.cc/embed/42882-pokemon-inclement-emerald-1-13.html" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>

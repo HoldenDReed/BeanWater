@@ -1,5 +1,3 @@
-import { EmployeeView } from "./EmployeeViews";
-import { CustomerView } from "./CustomerViews";
 
 export const ApplicationViews = () => {
 
@@ -7,11 +5,7 @@ export const ApplicationViews = () => {
   const userObject = JSON.parse(localUser);
   
  
-  if (userObject.isStaff) {
-    return <EmployeeView />;
-  } else {
-    return <CustomerView />;
-  }
+ 
 
 };
 

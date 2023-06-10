@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { googleAuth } from "../helpers/googleAuth";
 import { emailAuth } from "../helpers/emailAuth";
 import "./Login.css";
+import GoogleButton from "react-google-button";
 
 export const Register = () => {
   const [user, setUser] = useState({
     email: "",
     fullName: "",
     password: "",
+    isSaff: false
   });
   let navigate = useNavigate();
 
@@ -30,8 +32,9 @@ export const Register = () => {
   };
 
   return (
-    <main style={{ textAlign: "center" }}>
-      <form className="form--login" onSubmit={handleRegister}>
+    <div className="loginBackground">
+    <main className="block">
+      <form className="form--login, centerItems" onSubmit={handleRegister}>
         <h1 className="h3 mb-3 font-weight-normal">Please Register</h1>
         <fieldset>
           <label htmlFor="fullName"> Full Name </label>
@@ -69,13 +72,35 @@ export const Register = () => {
           />
         </fieldset>
         <fieldset>
-          <button type="submit"> Register </button>
+          <label htmlFor="isStaff"> Staff </label>
+          <input
+            name="staff"
+            onChange={updateUser}
+            type="radio"
+            id="isStaff"
+            value={true}
+            autoFocus
+          />
+          <label htmlFor="notStaff"> Customer </label>
+          <input
+            name="staff"
+            onChange={updateUser}
+            type="radio"
+            id="notStaff"
+            value={false}
+            autoFocus
+          />
+        </fieldset>
+        
+        <fieldset>
+          <button type="submit" onClick={handleRegister}> Register </button>
         </fieldset>
       </form>
-      <h2>Register With Google?</h2>
-      <button type="submit" onClick={onSubmitLogin}>
-        Let's Do It!
-      </button>
+      <section className="link--register">
+      <GoogleButton type="light" className="googleButton" onClick={onSubmitLogin} 
+      />
+      </section>
     </main>
+    </div>
   );
 };

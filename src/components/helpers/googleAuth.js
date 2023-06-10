@@ -7,12 +7,36 @@ import {
 
 // SignIn brings up the google sign in pop up AND works
 // for both signing in AND registering a user
+const registerNewUser = (userAuth) => {
+  return fetch("http://localhost:8088/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userAuth)
+  })
+}
 
+const handleRegister = (userAuth) => {
+
+  return fetch(`http://localhost:8088/users?email=${userAuth.email}`)
+    .then(res => res.json())
+    .then(response => {
+      if (response.length > 0) {
+        // Duplicate email. No good.
+
+      }
+      else {
+        // Good email, create user.
+        registerNewUser(userAuth)
+      }
+    })
+}
 export const googleAuth = {
   // Works to sign in AND register a user
-  signInRegister: function(navigate) {
+  signInRegister: function (navigate) {
     return new Promise((res) => {
-      const provider = new GoogleAuthProvider();
+      const provider = new GoogleAuthProvider(); provider.setCustomParameters({ prompt: 'select_account' })
       const auth = getAuth();
       signInWithPopup(auth, provider)
         .then((userCredential) => {
@@ -21,11 +45,16 @@ export const googleAuth = {
             displayName: userCredential.user.displayName,
             uid: userCredential.user.uid,
             type: "google",
+            isStaff: false
           };
+          handleRegister(userAuth)
+
+
           // Add user object to localStorage
           localStorage.setItem("capstone_user", JSON.stringify(userAuth));
           // Navigate us back home
           navigate("/");
+          window.location.reload(false)
           console.log("you did it");
         })
         .catch((error) => {
@@ -37,7 +66,7 @@ export const googleAuth = {
     });
   },
   // Sign out a user
-  signOut: function(navigate) {
+  signOut: function (navigate) {
     const auth = getAuth();
     signOut(auth)
       .then(() => {

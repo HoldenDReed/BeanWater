@@ -33,11 +33,11 @@ export const Drink = ({ id, name, img }) => {
 
     return <section className="drink">
         <div>
-            <Link to={`/drinks/${id}`}><h3>{name}</h3></Link>
+            <Link to={`/drinks/id/${id}`}><h3>{name}</h3></Link>
         </div>
         
         <div>
-            <Link to={`/drinks/${id}`}>
+            <Link to={`/drinks/id/${id}`}>
                 <img src={img} className="drinkImg"></img>
             </Link>
         </div>

@@ -1,0 +1,39 @@
+body {
+    background: url(C:\Users\holde\workspaceBack\BeanWater\BeanWaterFront\public\coffee-beans-dark-background-top-view-coffee-concept-banner.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    
+    font-family: 'Sora', sans-serif;
+}
+
+.drinksContainer{
+font-family: 'Courgette', cursive;
+text-align: center;
+color: white;
+}
+
+.typeImg{
+    width: 235px;
+    }
+
+.typesContainer{
+display: flex;
+flex-wrap: wrap;
+justify-content: center
+}
+
+.type{
+margin: 50px;
+justify-content: center;
+}
+
+.type h3{
+    text-align: center
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}

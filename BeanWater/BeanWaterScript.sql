@@ -17,7 +17,7 @@ CREATE TABLE [users] (
   [Id] int PRIMARY KEY identity NOT NULL,
   [Email] nvarchar(255),
   [displayName] nvarchar(255),
-  [uId] nvarchar(255) NOT NULL,
+  [uId] nvarchar(255) NOT NULL UNIQUE,
 )
 GO
 
@@ -53,7 +53,7 @@ GO
 CREATE TABLE [favorites] (
   [Id] int PRIMARY KEY identity NOT NULL,
   [drinkId] int,
-  [userId] int
+  [uId] nvarchar(255)
 )
 GO
 
@@ -87,7 +87,7 @@ INSERT INTO dbo.drinkTypes([Type]) VALUES ( 'Teas')
 
 INSERT INTO dbo.users([displayName],[Email],[uId]) VALUES ( 'Jayla', 'ibjaylacook@yahoo.com', 'IIrurrqM5dMonkoiI7pdpqSweuL2')
 
-INSERT INTO dbo.favorites([drinkId],[userId] ) VALUES ( 1,1)
+INSERT INTO dbo.favorites([drinkId],[uId] ) VALUES ( 1,'IIrurrqM5dMonkoiI7pdpqSweuL2')
 
 INSERT INTO dbo.drinkTools([drinkId],[toolId] ) VALUES ( 1,1)/*Cappuccino*/
 INSERT INTO dbo.drinkTools([drinkId],[toolId] ) VALUES ( 1,2)
@@ -182,7 +182,7 @@ INSERT INTO dbo.tools([Name],[Link]) VALUES ( 'Blender', 'https://www.amazon.com
 INSERT INTO dbo.tools([Name],[Link]) VALUES ( 'Blender/Coffee maker', 'https://www.amazon.com/Mr-Coffee-Single-Serve-Blender-Reusable/dp/B09JZR6XWC/ref=sr_1_8?crid=2RL61PUON0FL1&keywords=blender+coffee+maker&qid=1684605500&sprefix=blender+coffee+maker%2Caps%2C91&sr=8-8')
 INSERT INTO dbo.tools([Name],[Link]) VALUES ( 'Nitro Cold Brew Kit', 'https://www.amazon.com/Royal-Nitro-Coffee-Maker-System/dp/B07SB2K1C6?th=1')
 
-ALTER TABLE [favorites] ADD FOREIGN KEY ([userId]) REFERENCES [users] ([Id])
+ALTER TABLE [favorites] ADD FOREIGN KEY ([uId]) REFERENCES [users] ([uId])
 GO
 
 ALTER TABLE [favorites] ADD FOREIGN KEY ([drinkId]) REFERENCES [drinks] ([Id])

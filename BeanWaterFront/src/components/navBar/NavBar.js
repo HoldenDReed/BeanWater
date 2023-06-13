@@ -1,6 +1,7 @@
 import "./NavBar.css"
 import { logout } from "../helpers/logout";
 import { useNavigate } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function showNav(){
     document.getElementsByClassName("navigation")[0].classList.toggle("active");
@@ -26,25 +27,25 @@ export const NavBar = () => {
                 <a href="/">Home</a>
             </div>
             <div className="link">
-                <a href="./Drinks/type/1">Hot Coffees</a>
+                <a href="/Drinks/type/1">Hot Coffees</a>
             </div>
             <div className="link">
-                <a href="./Drinks/type/2">Hot Drinks</a>
+                <a href="/Drinks/type/2">Hot Drinks</a>
             </div>
             <div className="link">
-                <a href="./Drinks/type/3">Frappuccinos</a>
+                <a href="/Drinks/type/3">Frappuccinos</a>
             </div>
             <div className="link">
-                <a href="./Drinks/type/4">Cold coffees</a>
+                <a href="/Drinks/type/4">Cold coffees</a>
             </div>
             <div className="link">
-                <a href="./Drinks/type/5">Teas</a>
+                <a href="/Drinks/type/5">Teas</a>
             </div>
             <div className="link">
-                <a href="./Drinks/Favorites">Favorites</a>
+                <a href="/Drinks/Favorites">Favorites</a>
             </div>
             <div className="link">
-                <a href="./tools">Tools</a>
+                <a href="/tools">Tools</a>
             </div>
             <div className="link">
                 <a href="#" onClick={onLogout}>Logout</a>

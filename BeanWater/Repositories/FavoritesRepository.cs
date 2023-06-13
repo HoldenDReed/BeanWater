@@ -20,7 +20,7 @@ namespace BeanWater.Repositories
                     cmd.CommandText = @"
                         SELECT
                         F.id as FavoriteId,
-                        F.userId,
+                        F.uid,
                         D.Id as DrinkId, 
                         drinksImg as Img, 
                         Name, 
@@ -30,8 +30,7 @@ namespace BeanWater.Repositories
                         FROM favorites as F
                         JOIN drinks as D on F.drinkId = D.id
                         JOIN drinkTypes as DT on D.Id = DT.Id
-                        JOIN users AS U ON F.userId = U.Id
-                        WHERE uid = @uId";
+                        WHERE F.uid = @uId";
 
                     cmd.Parameters.AddWithValue("@uId", uId);
                     var reader = cmd.ExecuteReader();
@@ -70,12 +69,12 @@ namespace BeanWater.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                        INSERT INTO Favorites (drinkId, userId)
+                        INSERT INTO Favorites (drinkId, uId)
                         OUTPUT INSERTED.ID
-                        VALUES (@drinkId, @userId)";
+                        VALUES (@drinkId, @uid)";
 
-                    DbUtils.AddParameter(cmd, "@gameId", favorites.DrinkId);
-                    DbUtils.AddParameter(cmd, "@userId", favorites.UserId);
+                    DbUtils.AddParameter(cmd, "@drinkId", favorites.DrinkId);
+                    DbUtils.AddParameter(cmd, "@uid", favorites.uId);
 
                     int id = (int)cmd.ExecuteScalar();
 

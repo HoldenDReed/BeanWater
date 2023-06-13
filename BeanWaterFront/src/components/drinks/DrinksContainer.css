@@ -14,14 +14,27 @@ text-align: center;
 color: white;
 }
 
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    }
+
 .typeImg{
-    width: 235px;
+    width: 200px;
     }
 
 .typesContainer{
 display: flex;
 flex-wrap: wrap;
-justify-content: center
+justify-content: center;
+margin-left: 17%;
+margin-right: 17%;
 }
 
 .type{
@@ -36,4 +49,8 @@ justify-content: center;
 .link {
     text-decoration: none;
     color: white;
+}
+
+.drink {
+    width: 33%;
 }

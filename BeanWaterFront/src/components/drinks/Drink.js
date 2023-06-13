@@ -32,11 +32,10 @@ export const Drink = ({ id, name, img }) => {
     )
 
     return <section className="drink">
-        <div>
-            <Link to={`/drinks/id/${id}`}><h3>{name}</h3></Link>
+        <div className="drinkChild">
+            <Link to={`/drinks/id/${id}`} className="link"><h3>{name}</h3></Link>
         </div>
-        
-        <div>
+        <div className="drinkChild">
             <Link to={`/drinks/id/${id}`}>
                 <img src={img} className="drinkImg"></img>
             </Link>
@@ -57,7 +56,7 @@ export const Drink = ({ id, name, img }) => {
                                     }}
                                     ><AiFillStar/></button>
                                 : <button className="deleteButton" onClick={async () => {
-                                    await fetch(`http://localhost:7158/favorites`, {
+                                    await fetch(`https://localhost:7158/api/Favorites?uId=${userObject.uid}`, {
                                         method: "POST",
                                         headers: {
                                             "Content-Type": "application/json"

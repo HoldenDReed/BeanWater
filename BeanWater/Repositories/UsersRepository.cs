@@ -29,7 +29,7 @@ namespace BeanWater.Repositories
                         users.Add(new Users()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            Name = DbUtils.GetString(reader, "displayName"),
+                            displayName = DbUtils.GetString(reader, "displayName"),
                             Uid = DbUtils.GetString(reader, "uid"),
                             Email = DbUtils.GetString(reader, "Email")
                         });
@@ -65,7 +65,7 @@ namespace BeanWater.Repositories
                         user = new Users()
                         {
                             Id = DbUtils.GetInt(reader, "Id"),
-                            Name = DbUtils.GetString(reader, "displayName"),
+                            displayName = DbUtils.GetString(reader, "displayName"),
                             Uid = DbUtils.GetString(reader, "uid"),
                             Email = DbUtils.GetString(reader, "Email")
                         };
@@ -85,8 +85,8 @@ namespace BeanWater.Repositories
                     cmd.CommandText = @"
                         INSERT INTO Users (displayName, uid, Email)
                         OUTPUT INSERTED.ID
-                        VALUES (@displayName, @uid, @Email";
-                    DbUtils.AddParameter(cmd, "@displayName", users.Name);
+                        VALUES (@displayName, @uid, @Email)";
+                    DbUtils.AddParameter(cmd, "@displayName", users.displayName);
                     DbUtils.AddParameter(cmd, "@uid", users.Uid);
                     DbUtils.AddParameter(cmd, "@Email", users.Email);
 
@@ -108,7 +108,7 @@ namespace BeanWater.Repositories
                                Email = @Email,
                          WHERE Id = @Id";
 
-                    DbUtils.AddParameter(cmd, "@displayName", user.Name);
+                    DbUtils.AddParameter(cmd, "@displayName", user.displayName);
                     DbUtils.AddParameter(cmd, "@uid", user.Uid);
                     DbUtils.AddParameter(cmd, "@Email", user.Email);
 

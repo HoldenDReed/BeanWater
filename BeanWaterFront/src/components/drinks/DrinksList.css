@@ -7,6 +7,11 @@
     margin-right: auto;
 }
 
+.drinkImg{
+    border-radius: 50%;
+    width: 47%;
+    height: 47%;
+}
 .drinksDetails {
     display: flex;
     flex-wrap: wrap;
@@ -26,6 +31,10 @@
 .mainContainerDetails {
     display: flex;
     color: white;
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+.drinkChild {
+   
 }

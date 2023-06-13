@@ -28,10 +28,19 @@ export const emailAuth = {
               email: userCredential.user.email,
               displayName: userObj.fullName,
               uid: userCredential.user.uid,
-              type: "email",
+              type: "email"
             };
+            
             // Saves the user to localstorage
             localStorage.setItem("capstone_user", JSON.stringify(userAuth));
+            fetch(`https://localhost:7158/api/Users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userAuth),
+      })
+        .then((response) => response.json())
             // Navigate us back to home
             navigate("/");
           },

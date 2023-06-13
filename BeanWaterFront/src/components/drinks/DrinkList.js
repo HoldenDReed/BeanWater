@@ -5,6 +5,7 @@ import "./DrinksList.css";
 
 export const DrinksList = () => {
   const [drinks, setDrinks] = useState([]);
+  const [drinkType, setDrinkType] = useState([]);
   const { typeId } = useParams()
 
 
@@ -20,11 +21,21 @@ export const DrinksList = () => {
     [typeId]
   );
 
+  useEffect(
+    () => {
+      const setType = async () => {
+        setDrinkType(drinks[0].drinkType);
+      };
+      setType();
+    },
+    [drinks]
+  );
+
 
   return (
 
-    <div className="drinks">
-      <h2 className="drinkTypeTitle">{typeId}</h2>
+    <div className="drinksListContainer">
+      <h2 className="drinkTypeTitle">{drinkType}</h2>
       <div className="container">
         {
           drinks.map(drink => <Drink key={`drink--${drink.id}`}

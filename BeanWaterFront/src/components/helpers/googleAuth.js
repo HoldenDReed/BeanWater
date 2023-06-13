@@ -22,9 +22,18 @@ export const googleAuth = {
             uid: userCredential.user.uid,
             type: "google",
           };
-          // Add user object to localStorage
+          
+          // Saves the user to localstorage
           localStorage.setItem("capstone_user", JSON.stringify(userAuth));
-          // Navigate us back home
+          fetch(`https://localhost:7158/api/Users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userAuth),
+    })
+      .then((response) => response.json())
+          // Navigate us back to home
           navigate("/");
           console.log("you did it");
         })

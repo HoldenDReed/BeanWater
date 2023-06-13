@@ -16,10 +16,12 @@ export const DrinksDetails = () => {
         setDrink(singleDrink);
         const recipeText = drink.recipe
         document.getElementById("recipeText").innerHTML = recipeText;
+        
       };
       fetchData();
+        
     },
-    [drinkId]
+    [drink]
   );
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +30,7 @@ export const DrinksDetails = () => {
       setTools(toolsArray);
     };
     fetchData();
-  }, [drinkId]
+  }, [drink]
   );
   
 

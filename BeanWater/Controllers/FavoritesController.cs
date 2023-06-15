@@ -22,6 +22,12 @@ namespace BeanWater.Controllers
             return Ok(_favoritesRepository.GetAll(uId));
         }
 
+        //[HttpGet]
+        //public IActionResult Get(string uId, int id)
+        //{
+        //    return Ok(_favoritesRepository.GetByDrinkAndUid(uId, id));
+        //}
+
         // POST api/<FavoritesController>
         [HttpPost]
         public IActionResult Post(AddFavorite drink)

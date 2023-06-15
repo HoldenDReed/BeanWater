@@ -1,37 +1,15 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai"
 import { AiOutlineStar } from "react-icons/ai"
 
     const localUser = localStorage.getItem("capstone_user");
     const userObject = JSON.parse(localUser);
 
-export const Drink = ({ id, name, img }) => {
-
-    const navigate = useNavigate()
-    const [isFavorite, setIsFavorite] = useState(false)
-    const [favoritesId, setFavoritesId] = useState("")
-
-    useEffect(
-        () => {
-            const checkIfFavorite = async () => {
-                const response = await fetch(`https://localhost:7158/api/Favorites?uId=${userObject.uid}&drinkId=${id}`)
-                const responseJSON = await response.json()
-                const responseLength = await responseJSON.length
-                    setFavoritesId(responseJSON[0])
-                if (await responseLength === 0) {
-                    setIsFavorite(false)
-                } else {
-                    setIsFavorite(true)
-                }
-            }
-            checkIfFavorite()
-        },
-        [id]
-    )
+export const Drink = ({ id, name, img, isFavorite, favoritesId}) => {
 
     return <section className="drink">
+        <h1>{id}</h1>
+        <h1>{favoritesId}</h1>
         <div className="drinkChild">
             <Link to={`/drinks/id/${id}`} className="link"><h3>{name}</h3></Link>
         </div>
@@ -46,7 +24,7 @@ export const Drink = ({ id, name, img }) => {
                                 ? <button className="deleteButton"
                                     onClick={() => {
                                       if  (window.confirm("Are you sure?")) {
-                                             fetch(`http://localhost:7158/Favorites/${favoritesId.id}`, {
+                                             fetch(`https://localhost:7158/api/Favorites/${favoritesId}`, {
                                                 method: "DELETE" 
                                             })
                                             .then(window.location.reload(false))

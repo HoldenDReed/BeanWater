@@ -4,7 +4,6 @@ import "./DrinksContainer.css"
 import { Link } from "react-router-dom"
 
 export const DrinksContainer = () => {
-    const [searchTerms, setSearchTerms] = useState("")
 
     return <>
         <div className="drinksContainer">

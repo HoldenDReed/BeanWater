@@ -29,7 +29,7 @@ namespace BeanWater.Repositories
                         DT.Type as Type
                         FROM favorites as F
                         JOIN drinks as D on F.drinkId = D.id
-                        JOIN drinkTypes as DT on D.Id = DT.Id
+                        JOIN drinkTypes as DT on D.drinkTypesId = DT.Id
                         WHERE F.uid = @uId";
 
                     cmd.Parameters.AddWithValue("@uId", uId);
@@ -61,6 +61,57 @@ namespace BeanWater.Repositories
             }
         }
 
+        //public Drinks GetByDrinkAndUid(string uId, int id)
+        //{
+        //    using (var conn = Connection)
+        //    {
+        //        conn.Open();
+        //        using (var cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"
+        //                SELECT
+        //                F.id as FavoriteId,
+        //                F.uid,
+        //                D.Id as DrinkId, 
+        //                drinksImg as Img, 
+        //                Name, 
+        //                Recipe,
+        //                Uid,
+        //                DT.Type as Type
+        //                FROM favorites as F
+        //                JOIN drinks as D on F.drinkId = D.id
+        //                JOIN drinkTypes as DT on D.Id = DT.Id
+        //                WHERE F.uid = @uId AND DrinkId = @id";
+
+        //            cmd.Parameters.AddWithValue("@uId", uId);
+        //            cmd.Parameters.AddWithValue("@id", id);
+
+        //            var reader = cmd.ExecuteReader();
+
+        //            Favorites favorite = null;
+        //            if (reader.Read())
+        //            {
+        //                favorite = new Favorites()
+        //                {
+        //                    Id = DbUtils.GetInt(reader, "FavoriteId"),
+        //                    DrinkId = DbUtils.GetInt(reader, "DrinkId"),
+        //                    Uid = DbUtils.GetString(reader, "uid"),
+        //                    Drinks = new Drinks()
+        //                    {
+        //                        Id = DbUtils.GetInt(reader, "DrinkId"),
+        //                        Name = DbUtils.GetString(reader, "Name"),
+        //                        DrinksImg = DbUtils.GetString(reader, "Img"),
+        //                        Recipe = DbUtils.GetString(reader, "Recipe"),
+        //                        DrinkType = DbUtils.GetString(reader, "Type"),
+        //                    }
+        //                };
+        //            }
+
+        //            reader.Close();
+        //            return favorite;
+        //        }
+        //    }
+        //}
         public void Add(AddFavorite favorites)
         {
             using (var conn = Connection)

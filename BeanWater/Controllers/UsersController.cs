@@ -33,6 +33,16 @@ namespace BeanWater.Controllers
             }
             return Ok(user);
         }
+        [HttpGet("uid/{uid}")]
+        public IActionResult GetUserByUid(string uid)
+        {
+            var user = _usersRepository.GetUserByUid(uid);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
 
         // POST api/<UsersController>
         [HttpPost]

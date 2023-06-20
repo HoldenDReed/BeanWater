@@ -32,20 +32,24 @@ export const DrinksDetails = () => {
     fetchData();
   }, [drink]
   );
+  const handleClick = (link) => {
+    window.open(link, '_blank');
+  };
   
-
   return (
     <>
       <div className="mainContainerDetails">
         <div className="recipeContainerDetails">
           <h2>{drink.name}</h2>
           <p id="recipeText"></p>
+          <h3>Recommended Tools - Click on tools to be redirected</h3>
           <ul>
             {tools.map((tool) => (
-              <li><a href={tool.Link} target="_blank">
-                {tool.name}
+              <li><a onClick={(e) => handleClick(tool.link)}>
+                {tool.name}         
               </a>
               </li>
+
             ))}
           </ul>
         </div>

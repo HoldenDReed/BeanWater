@@ -54,3 +54,12 @@ justify-content: center;
 .drink {
     width: 33%;
 }
+
+.toolsContainer{
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    }

@@ -8,6 +8,7 @@ namespace BeanWater.Repositories
         void Delete(int id);
         List<Users> GetAll();
         Users GetUserById(int id);
+        Users GetUserByUid(string uid);
         void Update(Users user);
     }
 }

@@ -8,8 +8,6 @@ import { AiOutlineStar } from "react-icons/ai"
 export const Drink = ({ id, name, img, isFavorite, favoritesId}) => {
 
     return <section className="drink">
-        <h1>{id}</h1>
-        <h1>{favoritesId}</h1>
         <div className="drinkChild">
             <Link to={`/drinks/id/${id}`} className="link"><h3>{name}</h3></Link>
         </div>

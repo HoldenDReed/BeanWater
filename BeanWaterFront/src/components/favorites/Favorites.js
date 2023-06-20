@@ -12,23 +12,40 @@ export const Favorites = () => {
       const fetchFavorites = async () => {
         const response = await fetch(`https://localhost:7158/api/Favorites?uId=${userObject.uid}`)
         const responseJSON = await response.json()
+        console.log(responseJSON)
         setFavorites(responseJSON)
       }
       fetchFavorites()
     },
     []
   )
+
+  const isFavorite = (id) => {
+   const found = ""
+    return found !== undefined
+  }
+
+  const favoriteId = (id) => {
+    const found = favorites.find(obj => obj.drinkId === id);
+    if (found) {
+      return found.id
+    } else {
+
+    }
+  }
   return (
     <>
       <div>
-        <h2>Favorites Page</h2>
+        <h2 className="drinkTypeTitle">Favorites Page</h2>
         <div className="drinks">
           <div className="container">
             {
               favorites.map(drink => <Drink key={`drink--${drink.id}`}
-                id={drink.id}
-                name={drink.name}
-                img={drink.drinksImg} />)
+                id={drink.drinkId}
+                name={drink.drinks.name}
+                img={drink.drinks.drinksImg} 
+                isFavorite={isFavorite()}
+                favoritesId={drink.id}/>)
             }
           </div>
         </div>

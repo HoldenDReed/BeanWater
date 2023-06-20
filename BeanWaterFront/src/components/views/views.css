@@ -4,8 +4,8 @@
 .headerText {
     position: absolute;
     display: inline-block;
-    margin-left: 2rem;
-    margin-top: 1.5rem;
+    margin-left: 18%;
+    margin-right: 18%;
     color: white;
 }
 .inline {

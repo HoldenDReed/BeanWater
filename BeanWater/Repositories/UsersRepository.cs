@@ -75,6 +75,42 @@ namespace BeanWater.Repositories
                 }
             }
         }
+
+        public Users GetUserByUid(string uid)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                    SELECT Id,
+                    Email, 
+                    displayName, 
+                    uid
+                    FROM users
+                    WHERE users.uid = @uid";
+
+                    DbUtils.AddParameter(cmd, "@uid", uid);
+
+                    var reader = cmd.ExecuteReader();
+
+                    Users user = null;
+                    if (reader.Read())
+                    {
+                        user = new Users()
+                        {
+                            Id = DbUtils.GetInt(reader, "Id"),
+                            displayName = DbUtils.GetString(reader, "displayName"),
+                            Uid = DbUtils.GetString(reader, "uid"),
+                            Email = DbUtils.GetString(reader, "Email")
+                        };
+                    }
+                    reader.Close();
+                    return user;
+                }
+            }
+        }
         public void Add(Users users)
         {
             using (var conn = Connection)
@@ -102,14 +138,14 @@ namespace BeanWater.Repositories
                 using (var cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = @"
-                    UPDATE Drinks
+                    UPDATE Users
                            SET displayName = @displayName,
-                               uid = @uid,
-                               Email = @Email,
+                               uId = @uId,
+                               Email = @Email
                          WHERE Id = @Id";
-
+                    DbUtils.AddParameter(cmd, "@Id", user.Id);
                     DbUtils.AddParameter(cmd, "@displayName", user.displayName);
-                    DbUtils.AddParameter(cmd, "@uid", user.Uid);
+                    DbUtils.AddParameter(cmd, "@uId", user.Uid);
                     DbUtils.AddParameter(cmd, "@Email", user.Email);
 
                     cmd.ExecuteNonQuery();

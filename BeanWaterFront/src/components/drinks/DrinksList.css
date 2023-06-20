@@ -35,3 +35,20 @@
     margin-right: 18%;
 }
 
+.drinkTypeTitle{
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    color: white;
+}
+
+.toolsList{
+    font-size: large;
+    margin: 10px;
+    padding-top: 2rem;
+}
+
+.mainDesc{
+    color: white;
+    margin-left: 18%;
+    margin-right: 18%;
+}
